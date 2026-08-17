@@ -1,5 +1,6 @@
 ---
 import BrowserStores from './BrowserStores.astro';
+import HipaaBadge from './HipaaBadge.astro';
 
 const currentPath = Astro.url.pathname;
 const base = currentPath === '/' ? '' : '/';
@@ -19,6 +20,10 @@ const base = currentPath === '/' ? '' : '/';
                         class="text-white font-medium">Infinity Code LLC</span>.
                 </p>
                 <BrowserStores size="sm"/>
+
+                <div class="mt-6">
+                    <HipaaBadge variant="inline" theme="light"/>
+                </div>
             </div>
 
             <div>

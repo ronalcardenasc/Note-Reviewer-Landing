@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import BrowserStores from './BrowserStores.astro';
+import HipaaBadge from './HipaaBadge.astro';
 import popupImg from '../assets/popup.svg';
 import sidebarImg from '../assets/sidebar.svg';
 ---
@@ -19,10 +20,13 @@ import sidebarImg from '../assets/sidebar.svg';
 
       <div class="flex-1 text-center lg:text-left max-w-xl mx-auto lg:mx-0">
 
-        <span class="inline-flex items-center gap-2 bg-white/15 border border-white/25 text-white/90 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full mb-8">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          Browser Extension · AI-Powered
-        </span>
+        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-8">
+          <span class="inline-flex items-center gap-2 bg-white/15 border border-white/25 text-white/90 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            Browser Extension · AI-Powered
+          </span>
+          <HipaaBadge variant="pill" theme="light" />
+        </div>
 
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-6">
           Note Reviewer:<br />
@@ -52,7 +56,7 @@ import sidebarImg from '../assets/sidebar.svg';
           </a>
         </div>
 
-        <p class="mt-8 text-white/45 text-sm">Trusted by ABA professionals · No PHI stored · Works on any EHR</p>
+        <p class="mt-8 text-white/45 text-sm">Trusted by ABA professionals · HIPAA Compliant · No PHI stored · Works on any EHR</p>
       </div>
 
       <div class="flex-1 relative w-full max-w-120 mx-auto lg:mx-0 hidden lg:block">

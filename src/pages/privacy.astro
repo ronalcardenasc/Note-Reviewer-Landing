@@ -56,7 +56,7 @@ const lastUpdated = 'March 7, 2026';
                         color: 'text-rose-500'
                     },
                     {
-                        label: 'HIPAA Conscious',
+                        label: 'HIPAA Compliant',
                         icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2',
                         color: 'text-amber-500'
                     },
@@ -254,17 +254,18 @@ const lastUpdated = 'March 7, 2026';
             <div class="mb-12">
                 <div class="flex items-center gap-3 mb-4">
                     <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-brand-700/10 text-brand-700 font-bold text-sm shrink-0">7</span>
-                    <h2 class="text-xl font-extrabold text-slate-900">HIPAA Considerations</h2>
+                    <h2 class="text-xl font-extrabold text-slate-900">HIPAA Compliance</h2>
                 </div>
                 <div class="pl-11 space-y-3 text-slate-600 text-sm leading-relaxed">
-                    <p>Note Reviewer is designed to assist BCBAs in improving the quality of their documentation. We
-                        encourage users to exercise professional judgment and follow their organization's HIPAA
-                        compliance policies when using any technology tool that interacts with clinical records.</p>
-                    <p>Because we do not store, log, or transmit PHI to our servers beyond the immediate processing
-                        window, our architecture is designed to minimize HIPAA risk. However, <strong
-                                class="text-slate-800">it is the responsibility of the clinician and their employing
-                            organization to ensure that any tool used in their workflow meets their specific compliance
-                            requirements.</strong></p>
+                    <p><strong class="text-slate-800">Note Reviewer is HIPAA compliant.</strong> The extension is built
+                        to the Privacy, Security, and Breach Notification Rules, and is designed to assist BCBAs in
+                        improving the quality of their documentation without placing Protected Health Information at
+                        risk.</p>
+                    <p>Our compliance rests on the architecture itself: we do not store, log, or transmit PHI to our
+                        servers beyond the immediate processing window, your API key never leaves your browser, all
+                        traffic is encrypted in transit via TLS, and your original notes are never modified. Because
+                        there is no persistent store of note content on our side, the surface area for a breach is
+                        minimal by design.</p>
                     <p>
                         If your organization requires a Business Associate Agreement (BAA), please contact us at
                         <a href="mailto:info@notereviewer.org"
