@@ -1,17 +1,62 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-50: #e8f1fa;
-  --color-brand-100: #c5d9f2;
-  --color-brand-200: #9dbfe8;
-  --color-brand-300: #74a4dd;
-  --color-brand-400: #4d8cd3;
-  --color-brand-500: #2b74c8;
-  --color-brand-600: #1a5ea8;
-  --color-brand-700: #004e89;
-  --color-brand-800: #003d6b;
-  --color-brand-900: #002c4e;
+  --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --color-ink: #0d1f3c;
+  --color-ink-2: #16305c;
+  --color-ink-line: #2c456e;
+  --color-ink-muted: #7f95b4;
+  --color-ink-soft: #aebdd2;
+  --color-ink-faint: #dce6f4;
+
+  --color-accent: #2A73C7;
+  --color-accent-dark: #1d5da8;
+  --color-accent-bg: #eef3fa;
+  --color-accent-line: #d3e2f4;
+
+  --color-slate: #5b6b82;
+  --color-slate-2: #8695aa;
+  --color-slate-3: #a3aebe;
+
+  --color-line: #e4e9f0;
+  --color-panel: #f4f8fd;
+  --color-panel-line: #e0e8f2;
+  --color-surface: #fbfcfd;
+  --color-surface-2: #eef2f7;
+
+  --color-green: #147a5c;
+  --color-green-bg: #e9f5f0;
+  --color-green-line: #c9e5da;
+
+  --color-amber: #95600a;
+  --color-amber-bg: #fdf3e2;
+  --color-amber-line: #f0dcb8;
+
+  --color-red: #b4232a;
+  --color-red-bg: #fbe9ea;
+
+  --color-cyan: #0e7490;
+  --color-cyan-bg: #f2fafc;
+  --color-cyan-line: #bfdfe7;
 }
 
+@keyframes fanL {
+  from { transform: rotate(0deg) translate(0, 26px); opacity: 0; }
+  to { transform: rotate(-8deg) translate(-32px, 14px); opacity: 1; }
+}
+@keyframes fanR {
+  from { transform: rotate(0deg) translate(0, 26px); opacity: 0; }
+  to { transform: rotate(8deg) translate(32px, 14px); opacity: 1; }
+}
+@keyframes fanC {
+  from { transform: translateY(26px); opacity: 0; }
+  to { transform: translateY(-10px); opacity: 1; }
+}
+
+.nr-fan { transform: scale(1); }
+@media (max-width: 1000px) { .nr-fan { transform: scale(0.84); } }
+@media (max-width: 820px)  { .nr-fan { transform: scale(0.66); } }
+@media (max-width: 640px)  { .nr-fan { transform: scale(0.5); } }
+@media (max-width: 500px)  { .nr-fan { transform: scale(0.38); } }

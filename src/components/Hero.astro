@@ -1,230 +1,238 @@
 ---
-import { Image } from 'astro:assets';
 import BrowserStores from './BrowserStores.astro';
 import HipaaBadge from './HipaaBadge.astro';
-import popupImg from '../assets/popup.svg';
-import sidebarImg from '../assets/sidebar.svg';
+
+const heroAbc = [
+  { label: 'ANTECEDENT', text: 'when instructed to find an item in a different room' },
+  { label: 'TOPOGRAPHY', text: 'he ran away from the caregiver when instructed' },
+  { label: 'RESPONSE', text: '[CLIENT] followed the demand after redirection' },
+];
+
+const heroFilters = ['All', 'Active plan', 'No BIP', 'Reassessment overdue', 'Expiring soon', 'Inactive'];
+
+const heroPatients = [
+  { initials: 'C1', name: '[Client 1]', meta: 'Diagnosed with Autism Spectrum Disorder at age 2…', plan: 'Enabled', on: true },
+  { initials: 'C2', name: '[Client 2]', meta: '6 behaviors · 4 replacements · plan v3', plan: 'Enabled', on: true },
+  { initials: 'C3', name: '[Client 3]', meta: 'reassessment overdue · plan expired', plan: 'Review', on: false },
+];
 ---
 
-<section class="hero-section relative overflow-hidden text-white">
+<section class="relative overflow-hidden bg-gradient-to-b from-surface to-surface-2 border-b border-line">
   <div
-    class="absolute inset-0 opacity-[0.07]"
-    style="background-image: radial-gradient(circle, #ffffff 1px, transparent 1px); background-size: 30px 30px;"
+    class="absolute inset-0 opacity-[0.5]"
+    style="background-image: radial-gradient(circle, #dde4ed 1px, transparent 1px); background-size: 30px 30px;"
   ></div>
 
-  <div class="orb orb-1 absolute rounded-full pointer-events-none"></div>
-  <div class="orb orb-2 absolute rounded-full pointer-events-none"></div>
+  <div class="relative max-w-6xl mx-auto px-6 pt-16 pb-0 flex flex-col items-center gap-5 text-center">
 
-  <div class="relative max-w-7xl mx-auto px-6 py-24 md:py-32 lg:py-36">
-    <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-12">
+    <div class="flex flex-wrap items-center justify-center gap-2">
+      <span class="inline-flex items-center gap-1.5 font-mono text-[10.5px] tracking-[0.08em] uppercase text-accent-dark bg-accent-bg border border-accent-line px-2.5 py-1 rounded-full">
+        <span class="w-[5px] h-[5px] rounded-full bg-accent"></span>
+        Browser Extension · AI-Powered
+      </span>
+      <HipaaBadge variant="pill" theme="dark" />
+    </div>
 
-      <div class="flex-1 text-center lg:text-left max-w-xl mx-auto lg:mx-0">
+    <h1 class="m-0 text-[32px] sm:text-[40px] md:text-[46px] leading-[1.12] font-semibold tracking-[-0.025em] max-w-3xl text-balance">
+      Note Reviewer: AI-Powered Quality &amp; Compliance for ABA Notes
+    </h1>
 
-        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-8">
-          <span class="inline-flex items-center gap-2 bg-white/15 border border-white/25 text-white/90 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full">
-            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            Browser Extension · AI-Powered
-          </span>
-          <HipaaBadge variant="pill" theme="light" />
-        </div>
+    <p class="m-0 text-[16.5px] leading-relaxed text-slate max-w-xl text-balance">
+      Real-time clinical note review right inside your browser's side panel.
+      Designed for BCBAs who need instant quality feedback — without ever
+      modifying the original text.
+    </p>
 
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-6">
-          Note Reviewer:<br />
-          <span class="gradient-text">AI-Powered Quality<br />&amp; Compliance</span><br />
-          <span class="text-white/90">for ABA Notes</span>
-        </h1>
+    <div id="install" class="flex flex-col items-center gap-3 mt-1">
+      <div class="font-mono text-[10px] tracking-[0.12em] uppercase text-slate-2">Install on your browser</div>
+      <BrowserStores size="md" />
+      <a href="#how-it-works" class="text-[13px] text-accent mt-0.5">See how it works →</a>
+    </div>
 
-        <p class="text-lg md:text-xl text-white/75 mb-10 leading-relaxed">
-          Real-time clinical note review right inside your browser's side panel.
-          Designed for BCBAs who need instant quality feedback — without ever
-          modifying the original text.
-        </p>
+    <div class="flex flex-wrap items-center justify-center gap-2 text-xs text-slate-2 mt-0.5">
+      <div>Trusted by ABA professionals</div><div class="text-line">·</div>
+      <div>HIPAA Compliant</div><div class="text-line">·</div>
+      <div>Works on any EHR</div>
+    </div>
 
-        <div id="install" class="bg-white/10 border border-white/20 rounded-2xl px-7 py-6 mb-6 backdrop-blur-sm">
-          <BrowserStores label="Install on your browser" size="md" />
-        </div>
+    <div class="w-full flex justify-center pt-8 overflow-hidden">
+      <div class="nr-fan flex items-end justify-center" style="transform-origin: bottom center;">
 
-        <div class="flex flex-col sm:flex-row items-center lg:items-start gap-4">
-          <a
-            href="#how-it-works"
-            class="inline-flex items-center gap-2 text-white/65 hover:text-white text-sm font-medium transition-colors"
-          >
-            See how it works
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </a>
-        </div>
-
-        <p class="mt-8 text-white/45 text-sm">Trusted by ABA professionals · HIPAA Compliant · No PHI stored · Works on any EHR</p>
-      </div>
-
-      <div class="flex-1 relative w-full max-w-120 mx-auto lg:mx-0 hidden lg:block">
-        <div class="screenshots-wrapper relative">
-
-          <div class="img-glow absolute inset-0 rounded-3xl pointer-events-none"></div>
-
-          <div class="popup-card">
-            <Image
-              src={popupImg}
-              alt="Note Quality Review popup"
-              class="card-img"
-              loading="eager"
-            />
+        <!-- LEFT: extension popup -->
+        <div style="animation: fanL 900ms cubic-bezier(.22,1,.36,1) both; transform-origin: bottom center; z-index: 1;">
+          <div class="w-[262px] rounded-t-xl bg-white overflow-hidden" style="box-shadow: 0 30px 60px -30px rgba(13,31,60,0.5), 0 0 0 1px #dde4ed;">
+            <div class="bg-ink px-3 py-[11px] flex items-center gap-2">
+              <img src="/favicon.svg" alt="" class="w-[19px] h-[19px] rounded-[5px]" />
+              <div class="text-[12px] font-semibold text-white">Note Reviewer</div>
+              <div class="ml-auto flex items-center gap-1.5">
+                <div class="font-mono text-[8px] tracking-[0.1em] text-ink-muted">SUPPORT</div>
+                <div class="w-[17px] h-[17px] rounded-[4px] border border-ink-line flex items-center justify-center">
+                  <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#dce6f4" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>
+                </div>
+                <div class="w-[17px] h-[17px] rounded-[4px] border border-ink-line flex items-center justify-center">
+                  <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="#dce6f4" stroke-width="2" stroke-linecap="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.6 7.3L3 20.5l1.8-5.2A8.4 8.4 0 1 1 21 11.5z"></path></svg>
+                </div>
+              </div>
+            </div>
+            <div class="p-3 flex flex-col gap-2.5">
+              <div class="border border-line rounded-lg p-2.5 flex flex-col gap-2">
+                <div class="flex items-center gap-1.5">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#2A73C7" stroke-width="2" stroke-linecap="round"><circle cx="8" cy="15" r="4"></circle><path d="m10.8 12.2 8-8 2 2-1.5 1.5 1.5 1.5-2.5 2.5-1.5-1.5-1.5 1.5"></path></svg>
+                  <div class="font-mono text-[8.5px] tracking-[0.1em] uppercase text-accent">API token</div>
+                  <div class="font-mono text-[8px] px-1.5 py-0.5 rounded-[3px] bg-accent-bg text-accent">required</div>
+                </div>
+                <div class="flex items-center gap-1.5 border border-line rounded-md px-2 py-1.5">
+                  <div class="font-mono text-[9px] text-slate tracking-[0.14em] flex-1 overflow-hidden">••••••••••••••••••</div>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#a3aebe" stroke-width="1.8" stroke-linecap="round"><path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6-10-6-10-6z"></path><circle cx="12" cy="12" r="2.6"></circle></svg>
+                </div>
+                <div class="flex items-center gap-1.5 text-[9.5px] text-green">
+                  <div class="w-[5px] h-[5px] rounded-full bg-green"></div>Token loaded
+                </div>
+              </div>
+              <div class="bg-accent text-white text-[11.5px] font-semibold p-2.5 rounded-lg flex items-center justify-center gap-1.5">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"></path><path d="m6.5 6.5 2.5 2.5M15 15l2.5 2.5M17.5 6.5 15 9M9 15l-2.5 2.5"></path></svg>
+                Review Now →
+              </div>
+              <div class="border border-line text-[11px] font-medium p-2.5 rounded-lg text-center text-ink flex items-center justify-center gap-1.5">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="2"></rect><path d="M15 4v16"></path></svg>
+                Open management panel
+              </div>
+              <div class="flex items-center gap-1.5 pt-0.5">
+                <div class="font-mono text-[8px] tracking-[0.1em] uppercase text-slate-3">Interface language</div>
+                <div class="ml-auto flex border border-line rounded-[5px] overflow-hidden">
+                  <div class="font-mono text-[9px] font-medium px-2 py-1 bg-ink text-white">EN</div>
+                  <div class="font-mono text-[9px] font-medium px-2 py-1 text-slate">ES</div>
+                </div>
+              </div>
+            </div>
+            <div class="bg-ink px-3 py-[7px] flex items-center gap-1.5">
+              <div class="font-mono text-[8px] text-ink-muted">Note Reviewer ORG</div>
+              <div class="ml-auto font-mono text-[8px] text-ink-muted">v1.3.8</div>
+            </div>
           </div>
+        </div>
 
-          <div class="sidebar-card">
-            <Image
-              src={sidebarImg}
-              alt="Note Reviewer sidebar"
-              class="card-img"
-              loading="eager"
-            />
+        <!-- CENTER: review results -->
+        <div style="animation: fanC 900ms cubic-bezier(.22,1,.36,1) 120ms both; z-index: 3;">
+          <div class="w-[340px] rounded-t-xl bg-white overflow-hidden" style="box-shadow: 0 40px 80px -34px rgba(13,31,60,0.55), 0 0 0 1px #dde4ed;">
+            <div class="bg-ink px-[11px] py-[9px] flex items-center gap-2">
+              <img src="/favicon.svg" alt="" class="w-[19px] h-[19px] rounded-[5px]" />
+              <div class="flex flex-col gap-px">
+                <div class="text-[11.5px] font-semibold text-white leading-tight">Note Quality Review</div>
+                <div class="font-mono text-[8px] text-ink-muted leading-tight">CPT-97153 · Office Puzzle</div>
+              </div>
+              <div class="ml-auto flex items-center gap-1">
+                <div class="font-mono text-[8px] text-ink-faint border border-ink-line px-1.5 py-0.5 rounded">Manage</div>
+                <div class="font-mono text-[8px] text-ink-faint border border-ink-line px-1.5 py-0.5 rounded">PDF</div>
+              </div>
+            </div>
+            <div class="p-[11px] flex flex-col gap-2.5">
+              <div class="flex items-center gap-2.5">
+                <div class="flex items-baseline gap-0.5">
+                  <div class="text-2xl font-semibold text-green leading-none">96</div>
+                  <div class="font-mono text-[9px] text-slate-2">/100</div>
+                </div>
+                <div class="flex flex-col gap-1 flex-1 min-w-0">
+                  <div class="flex items-center gap-1.5">
+                    <div class="font-mono text-[8px] tracking-[0.08em] px-1.5 py-0.5 rounded-[3px] bg-amber-bg text-amber">PARTIAL</div>
+                    <div class="text-[10px] text-slate">Fix 2 items before signing</div>
+                  </div>
+                  <div class="h-1 rounded-[3px] bg-green-bg overflow-hidden">
+                    <div class="w-[88%] h-full bg-green"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-1">
+                <div class="font-mono text-[8.5px] px-1.5 py-0.5 rounded-full bg-amber-bg text-amber">2 to fix</div>
+                <div class="font-mono text-[8.5px] px-1.5 py-0.5 rounded-full bg-[#f0f4f9] text-slate">5 ABC Analysis</div>
+                <div class="font-mono text-[8.5px] px-1.5 py-0.5 rounded-full bg-[#f0f4f9] text-slate">5 Replacements</div>
+                <div class="font-mono text-[8.5px] px-1.5 py-0.5 rounded-full bg-green-bg text-green">7 aligned</div>
+              </div>
+              <div class="flex items-center gap-1.5 py-1.5 px-2 rounded-lg bg-cyan-bg border border-cyan-line">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0e7490" stroke-width="1.8" stroke-linecap="round"><path d="M14 3H7a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V7z"></path><path d="M14 3v4h4"></path></svg>
+                <div class="text-[9.5px] text-[#0e6070]">Plan found for</div>
+                <div class="text-[10px] font-semibold text-[#0b5566] px-1.5 py-0.5 rounded-[3px] bg-[#d6ecf1]">[CLIENT NAME]</div>
+              </div>
+              <div class="border border-line rounded-lg overflow-hidden">
+                <div class="px-2.5 py-2 flex items-center gap-1.5 border-b border-[#f0f3f7]">
+                  <div class="w-[3px] h-3 rounded-[2px] bg-accent"></div>
+                  <div class="text-[11px] font-semibold">ABC Analysis</div>
+                  <div class="font-mono text-[8px] tracking-[0.06em] px-1.5 py-0.5 rounded-[3px] bg-green-bg text-green">STRONG</div>
+                  <div class="ml-auto font-mono text-[8px] text-slate-3">5 events</div>
+                </div>
+                <div class="px-2.5 py-2 flex flex-col gap-1.5">
+                  <div class="flex items-center gap-1.5">
+                    <div class="font-mono text-[8.5px] text-slate-2">01</div>
+                    <div class="text-[10.5px] font-semibold">elopement behavior</div>
+                    <div class="ml-auto font-mono text-[8px] text-slate-3">3 interventions</div>
+                  </div>
+                  {heroAbc.map((a) => (
+                    <div class="flex gap-1.5 items-start">
+                      <div class="font-mono text-[7.5px] tracking-[0.06em] px-1.5 py-0.5 rounded-[3px] bg-[#f0f4f9] text-slate shrink-0 whitespace-nowrap">{a.label}</div>
+                      <div class="text-[9.5px] text-ink leading-relaxed min-w-0">{a.text}</div>
+                    </div>
+                  ))}
+                  <div class="flex gap-1.5 items-start">
+                    <div class="font-mono text-[7.5px] tracking-[0.06em] px-1.5 py-0.5 rounded-[3px] bg-[#f0f4f9] text-slate shrink-0 whitespace-nowrap">APPLIED</div>
+                    <div class="flex flex-col gap-0.5">
+                      <div class="text-[9.5px] text-accent-dark leading-relaxed">• Differential Reinforcement of Other Behaviors (DRO)</div>
+                      <div class="text-[9.5px] text-accent-dark leading-relaxed">• Planned Ignoring</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="h-1.5"></div>
+            </div>
           </div>
+        </div>
 
+        <!-- RIGHT: management panel -->
+        <div style="animation: fanR 900ms cubic-bezier(.22,1,.36,1) 240ms both; transform-origin: bottom center; z-index: 2;">
+          <div class="w-[262px] rounded-t-xl bg-white overflow-hidden" style="box-shadow: 0 30px 60px -30px rgba(13,31,60,0.5), 0 0 0 1px #dde4ed;">
+            <div class="bg-ink px-[11px] pt-2.5">
+              <div class="flex items-center gap-2">
+                <img src="/favicon.svg" alt="" class="w-[18px] h-[18px] rounded-[5px]" />
+                <div class="text-[11.5px] font-semibold text-white">Note Reviewer</div>
+                <div class="font-mono text-[7.5px] tracking-[0.1em] text-ink-muted border border-ink-line px-1.5 py-0.5 rounded">MANAGEMENT</div>
+              </div>
+              <div class="flex gap-0.5 mt-2.5">
+                <div class="flex-1 text-center text-[9.5px] font-medium py-1.5 px-1 rounded-t-[5px] bg-white text-ink">Patients</div>
+                <div class="flex-1 text-center text-[9.5px] font-medium py-1.5 px-1 text-[#9fb3cf]">New</div>
+                <div class="flex-1 text-center text-[9.5px] font-medium py-1.5 px-1 text-[#9fb3cf]">Settings</div>
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <div class="px-[11px] py-2 border-b border-[#f0f3f7] flex items-center gap-1.5 bg-[#f6f8fb]">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#8695aa" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+                <div class="text-[9.5px] text-slate-3 flex-1 text-left">Search by name or diagnosis</div>
+                <div class="text-[8.5px] text-accent border border-accent-line px-1.5 py-0.5 rounded bg-white">Search</div>
+              </div>
+              <div class="px-[11px] py-2 flex flex-wrap gap-1 border-b border-[#f0f3f7]">
+                {heroFilters.map((label, i) => (
+                  <div
+                    class="text-[8.5px] px-2 py-0.5 rounded-full whitespace-nowrap border"
+                    style={`background:${i === 0 ? '#0d1f3c' : '#fff'}; border-color:${i === 0 ? '#0d1f3c' : '#e4e9f0'}; color:${i === 0 ? '#fff' : '#5b6b82'};`}
+                  >{label}</div>
+                ))}
+              </div>
+              {heroPatients.map((p) => (
+                <div class="px-[11px] py-2.5 border-b border-[#f0f3f7] flex items-center gap-2">
+                  <div class="w-[26px] h-[26px] rounded-[7px] bg-accent-bg text-accent flex items-center justify-center font-mono text-[9px] font-semibold shrink-0">{p.initials}</div>
+                  <div class="min-w-0 flex-1 text-left">
+                    <div class="text-[10.5px] font-medium">{p.name}</div>
+                    <div class="text-[8.5px] text-slate-2 mt-0.5 overflow-hidden text-ellipsis whitespace-nowrap">{p.meta}</div>
+                  </div>
+                  <div class:list={['font-mono text-[8px] px-1.5 py-0.5 rounded-[3px] shrink-0', p.on ? 'bg-green-bg text-green' : 'bg-amber-bg text-amber']}>{p.plan}</div>
+                  <div class:list={['w-[22px] h-[13px] rounded-full shrink-0 p-0.5 flex items-center', p.on ? 'bg-accent justify-end' : 'bg-[#dde3ec] justify-start']}>
+                    <div class="w-[9px] h-[9px] rounded-full bg-white"></div>
+                  </div>
+                </div>
+              ))}
+              <div class="h-5"></div>
+            </div>
+          </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
-
-<style>
-  .hero-section {
-    background: linear-gradient(135deg, #003060 0%, #004e89 40%, #1a6ab5 75%, #2d8fd4 100%);
-  }
-
-  .orb {
-    filter: blur(80px);
-    opacity: 0.35;
-  }
-  .orb-1 {
-    width: 480px;
-    height: 480px;
-    background: radial-gradient(circle, #38bdf8 0%, transparent 70%);
-    top: -120px;
-    right: 5%;
-    position: absolute;
-  }
-  .orb-2 {
-    width: 320px;
-    height: 320px;
-    background: radial-gradient(circle, #6366f1 0%, transparent 70%);
-    bottom: -80px;
-    left: 5%;
-    position: absolute;
-  }
-
-  .gradient-text {
-    background: linear-gradient(90deg, #7dd3fc 0%, #38bdf8 50%, #93c5fd 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .screenshots-wrapper {
-    height: 480px;
-    position: relative;
-  }
-
-  .img-glow {
-    background: radial-gradient(ellipse at 50% 55%, rgba(56, 189, 248, 0.30) 0%, rgba(99, 102, 241, 0.15) 55%, transparent 80%);
-    filter: blur(28px);
-    transform: scale(1.1);
-  }
-
-  .popup-card {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 60%;
-    border-radius: 16px;
-    overflow: hidden;
-    z-index: 10;
-    box-shadow:
-      0 28px 70px rgba(0, 0, 0, 0.50),
-      0 8px 22px rgba(0, 0, 0, 0.35),
-      0 0 0 1px rgba(255, 255, 255, 0.14);
-    transform: perspective(900px) rotateY(4deg) rotateX(2deg) translateZ(30px);
-    animation: float-popup 5s ease-in-out infinite;
-    transition: transform 0.4s ease;
-  }
-  .popup-card:hover {
-    transform: perspective(900px) rotateY(2deg) rotateX(1deg) translateY(-6px) scale(1.02) translateZ(40px);
-  }
-
-  .sidebar-card {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 57%;
-    border-radius: 16px;
-    overflow: hidden;
-    z-index: 5;
-    box-shadow:
-      0 20px 55px rgba(0, 0, 0, 0.40),
-      0 5px 16px rgba(0, 0, 0, 0.28),
-      0 0 0 1px rgba(255, 255, 255, 0.10);
-    transform: perspective(900px) rotateY(-5deg) rotateX(-2deg) translateZ(0);
-    animation: float-sidebar 5s ease-in-out infinite;
-    animation-delay: -2.5s;
-    transition: transform 0.4s ease;
-  }
-  .sidebar-card:hover {
-    transform: perspective(900px) rotateY(-3deg) rotateX(-1deg) translateY(-6px) scale(1.02) translateZ(10px);
-  }
-
-  .card-img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 16px;
-  }
-
-  @keyframes float-popup {
-    0%, 100% { transform: perspective(900px) rotateY(4deg) rotateX(2deg) translateY(0px) translateZ(30px); }
-    50%       { transform: perspective(900px) rotateY(4deg) rotateX(2deg) translateY(-14px) translateZ(30px); }
-  }
-
-  @keyframes float-sidebar {
-    0%, 100% { transform: perspective(900px) rotateY(-5deg) rotateX(-2deg) translateY(0px) translateZ(0); }
-    50%       { transform: perspective(900px) rotateY(-5deg) rotateX(-2deg) translateY(-10px) translateZ(0); }
-  }
-
-  @media (max-width: 768px) {
-    .screenshots-wrapper {
-      height: 300px;
-    }
-    .popup-card {
-      width: 54%;
-    }
-    .sidebar-card {
-      width: 51%;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .screenshots-wrapper {
-      height: 220px;
-    }
-    .popup-card {
-      width: 52%;
-    }
-    .sidebar-card {
-      width: 49%;
-    }
-  }
-
-  @media (max-width: 360px) {
-    .screenshots-wrapper {
-      height: 180px;
-    }
-    .popup-card {
-      width: 50%;
-    }
-    .sidebar-card {
-      width: 47%;
-    }
-  }
-</style>
-

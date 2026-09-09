@@ -1,0 +1,64 @@
+---
+const planStates = [
+  { title: 'No plan on file yet', tone: 'gray',
+    body: "Flagged clearly, so you know there's nothing to compare against." },
+  { title: 'Plan expired', tone: 'amber',
+    body: 'Treatment plans are valid for 6 months from their assessment date. Note Reviewer still runs the comparison, but flags it so you know to confirm the plan is current.' },
+  { title: 'Two clients could match', tone: 'cyan',
+    body: "If a note could belong to more than one client with the same name, Note Reviewer won't guess. It shows you both and lets you choose." },
+  { title: 'A note from a different date', tone: 'blue',
+    body: "A note is always checked against whichever plan was actually in effect on that note's date, not just whatever the current plan happens to be." },
+];
+
+const tones: Record<string, { border: string; dot: string }> = {
+  gray: { border: 'border-line', dot: 'bg-slate-2' },
+  amber: { border: 'border-amber-line', dot: 'bg-amber' },
+  cyan: { border: 'border-cyan-line', dot: 'bg-cyan' },
+  blue: { border: 'border-accent-line', dot: 'bg-accent' },
+};
+---
+
+<section id="plan-aware" class="bg-panel border-y border-panel-line">
+  <div class="max-w-6xl mx-auto px-6 py-18 flex flex-col gap-7">
+    <div class="flex flex-col gap-3 max-w-3xl">
+      <div class="font-mono text-[10px] tracking-[0.14em] uppercase text-slate-2">Reviews that know the plan</div>
+      <h2 class="m-0 text-[26px] md:text-[30px] font-semibold tracking-[-0.02em] leading-tight text-balance">
+        Beyond spelling and structure: reviews that check clinical accuracy
+      </h2>
+      <p class="m-0 text-[15px] text-slate leading-relaxed text-balance">
+        Most note-checking tools stop at grammar and formatting. Note Reviewer goes further — once a client's treatment plan is on file, every note is automatically compared against it, not just read on its own.
+      </p>
+      <p class="m-0 text-[15px] text-slate leading-relaxed text-balance">
+        Behaviors, replacement programs, prompt levels, and topographies documented in the note are checked line by line against what the plan actually says. When something doesn't line up — a prompt level that's more intrusive than the plan calls for, a replacement that isn't part of the plan — you see exactly what the plan says next to what the note says, so there's nothing to cross-reference by hand.
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-3">
+      <div class="text-sm font-semibold tracking-[-0.01em]">
+        Note Reviewer also keeps track of the plan's own status, so a review is never checked against the wrong thing:
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        {planStates.map(({ title, body, tone }) => (
+          <div class:list={['flex flex-col gap-1.5 p-4 bg-white border rounded-[11px]', tones[tone].border]}>
+            <div class="flex items-center gap-2">
+              <div class:list={['w-2 h-2 rounded-full shrink-0', tones[tone].dot]}></div>
+              <div class="text-[13.5px] font-semibold leading-snug">{title}</div>
+            </div>
+            <div class="text-[12.5px] text-slate leading-relaxed text-balance">{body}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="flex items-center gap-3.5 flex-wrap p-4.5 border border-accent-line bg-white rounded-xl">
+      <div class="text-[13.5px] text-slate leading-relaxed flex-1 min-w-60 text-balance">
+        Every review reports whether the note is Consistent, Partially Consistent, or Inconsistent with the plan — giving you a clear signal, backed by specifics, before you sign.
+      </div>
+      <div class="flex gap-1.5 flex-wrap">
+        <div class="font-mono text-[10px] tracking-[0.06em] px-2.5 py-1 rounded-full bg-green-bg text-green">Consistent</div>
+        <div class="font-mono text-[10px] tracking-[0.06em] px-2.5 py-1 rounded-full bg-amber-bg text-amber">Partially Consistent</div>
+        <div class="font-mono text-[10px] tracking-[0.06em] px-2.5 py-1 rounded-full bg-red-bg text-red">Inconsistent</div>
+      </div>
+    </div>
+  </div>
+</section>

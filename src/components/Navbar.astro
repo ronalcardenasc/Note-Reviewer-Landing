@@ -5,27 +5,28 @@ interface Props {
 const { basePath = '' } = Astro.props;
 ---
 
-<header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100">
-  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="/" class="flex items-center gap-2 group">
-      <img src="/favicon.svg" alt="Note Reviewer Logo" class="w-6 h-6 group-hover:animate-spin-slow transition-transform" />
-      <span class="font-semibold text-slate-900 text-sm tracking-tight">Note Reviewer</span>
+<header class="sticky top-0 z-50 bg-surface/92 backdrop-blur-md border-b border-line">
+  <div class="max-w-6xl mx-auto px-6 h-[62px] flex items-center gap-4">
+    <a href={basePath || '/'} class="flex items-center gap-2.5 group shrink-0">
+      <img src="/favicon.svg" alt="Note Reviewer" class="w-[26px] h-[26px] rounded-[7px] group-hover:animate-spin-slow transition-transform" />
+      <span class="font-semibold text-ink text-[14.5px] tracking-tight">Note Reviewer</span>
     </a>
 
-    <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-      <a href={`${basePath}#features`}     class="hover:text-brand-700 transition-colors">Features</a>
-      <a href={`${basePath}#how-it-works`} class="hover:text-brand-700 transition-colors">How it Works</a>
-      <a href={`${basePath}#privacy`}      class="hover:text-brand-700 transition-colors">Privacy</a>
-      <a href={`${basePath}#contact`}      class="hover:text-brand-700 transition-colors">Contact</a>
+    <nav class="hidden md:flex items-center gap-6 text-[13.5px] text-slate ml-auto">
+      <a href={`${basePath}#features`}     class="hover:text-ink transition-colors">Features</a>
+      <a href={`${basePath}#management`}   class="hover:text-ink transition-colors">Management</a>
+      <a href={`${basePath}#how-it-works`} class="hover:text-ink transition-colors">How it Works</a>
+      <a href={`${basePath}#privacy`}      class="hover:text-ink transition-colors">Privacy</a>
+      <a href={`${basePath}#contact`}      class="hover:text-ink transition-colors">Contact</a>
     </nav>
 
     <a
       href={`${basePath}#install`}
-      class="inline-flex items-center gap-2 bg-brand-700 hover:bg-brand-800 text-white text-sm font-semibold px-5 py-2.5 rounded-xl transition-colors shadow-sm"
+      class="ml-4 md:ml-0 inline-flex items-center gap-2 bg-ink hover:bg-ink-2 text-white text-[13px] font-medium px-4 py-2.5 rounded-[8px] transition-colors shrink-0"
     >
       Get Started
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24">
+        <path d="M5 12h14M13 6l6 6-6 6"/>
       </svg>
     </a>
   </div>

@@ -1,0 +1,48 @@
+---
+const management = [
+  {
+    title: 'Add and organize clients in seconds',
+    body: 'Search and filter by plan status — including plans that are expiring soon or overdue for reassessment.',
+    paths: '<circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><path d="M18 8v6M15 11h6"/>',
+  },
+  {
+    title: 'Upload a BIP and let it do the intake',
+    body: "Note Reviewer extracts the client's behaviors, replacements, reinforcers, and clinical profile automatically — whether you're onboarding a new client or updating one you already have.",
+    paths: '<path d="M12 16V4m0 0L8 8m4-4 4 4"/><path d="M4 17v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-2"/>',
+  },
+  {
+    title: 'Every plan version and reviewed note in one place',
+    body: 'Track each plan version and every note reviewed for a client, tagged with how well it matched the plan.',
+    paths: '<path d="M4 5h16M4 12h16M4 19h10"/><circle cx="19" cy="19" r="2.5"/>',
+  },
+  {
+    title: 'Tune how reviews are scored',
+    body: 'Turn scoring, warnings, and topography tracking on or off, set minimum documentation requirements per session length, and manage your own word lists per CPT code.',
+    paths: '<path d="M5 21V9M12 21V4M19 21v-8"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="10" r="2"/>',
+  },
+];
+---
+
+<section id="management" class="max-w-6xl mx-auto px-6 py-18 flex flex-col gap-7">
+  <div class="flex flex-col gap-3 max-w-2xl">
+    <div class="font-mono text-[10px] tracking-[0.14em] uppercase text-slate-2">The Management Panel</div>
+    <h2 class="m-0 text-[26px] md:text-[30px] font-semibold tracking-[-0.02em] leading-tight text-balance">
+      One workspace for your entire caseload
+    </h2>
+    <p class="m-0 text-[15px] text-slate leading-relaxed text-balance">
+      Note Reviewer now includes a full Management Panel — a persistent workspace that lives right next to your notes, so you never have to leave your clinical platform to manage a client.
+    </p>
+  </div>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+    {management.map(({ title, body, paths }) => (
+      <div class="border border-line rounded-xl bg-white p-5 flex flex-col gap-2.5">
+        <div class="w-[30px] h-[30px] rounded-[8px] bg-accent-bg flex items-center justify-center">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2A73C7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" set:html={paths} />
+        </div>
+        <div class="text-[14.5px] font-semibold tracking-[-0.01em] leading-snug">{title}</div>
+        <div class="text-[13px] text-slate leading-relaxed text-balance">{body}</div>
+      </div>
+    ))}
+  </div>
+</section>

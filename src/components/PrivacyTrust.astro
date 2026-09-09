@@ -1,72 +1,33 @@
 ---
 import HipaaBadge from './HipaaBadge.astro';
 
-const trustItems = [
-  {
-    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
-    text: 'HIPAA compliant — BAA available on request',
-  },
-  {
-    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
-    text: 'No PHI is ever stored on our servers',
-  },
-  {
-    icon: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z',
-    text: 'Your API key is stored locally in your browser only',
-  },
-  {
-    icon: 'M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z',
-    text: 'Data is encrypted in transit via HTTPS / TLS',
-  },
-  {
-    icon: 'M10 21h7a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v11m0 5l4.879-4.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242z',
-    text: 'Original notes are never modified by the extension',
-  },
+const trust = [
+  'HIPAA compliant — BAA available on request',
+  'Your API key is stored locally in your browser only',
+  'Data is encrypted in transit via HTTPS / TLS',
+  'Original notes are never modified by the extension',
 ];
 ---
 
-<section id="privacy" class="py-24 bg-slate-50">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="bg-linear-to-br from-brand-700 to-brand-600 rounded-3xl p-10 md:p-16 text-white relative overflow-hidden">
+<section id="privacy" class="max-w-6xl mx-auto px-6 py-18 grid sm:grid-cols-2 gap-10 items-start">
+  <div class="flex flex-col gap-3.5">
+    <div class="font-mono text-[10px] tracking-[0.14em] uppercase text-slate-2">Privacy &amp; Trust</div>
+    <h2 class="m-0 text-[26px] md:text-[30px] font-semibold tracking-[-0.02em] leading-tight text-balance">
+      Your patients' data stays private. Always.
+    </h2>
+    <p class="m-0 text-[14.5px] text-slate leading-relaxed text-balance">
+      Note Reviewer is HIPAA compliant and built with privacy-first architecture. Note content is processed for the review and then discarded, your API key never leaves your browser, and anything you do save stays under your control.
+    </p>
+    <HipaaBadge variant="card" />
+    <a href="/privacy" class="text-[13.5px] text-accent">Read our privacy policy →</a>
+  </div>
 
-      <div class="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-white/5"></div>
-      <div class="absolute -bottom-16 -left-16 w-56 h-56 rounded-full bg-white/5"></div>
-
-      <div class="relative grid md:grid-cols-2 gap-12 items-center">
-
-        <div>
-          <span class="text-xs font-bold uppercase tracking-widest text-sky-300">Privacy &amp; Trust</span>
-          <h2 class="mt-3 text-3xl md:text-4xl font-extrabold tracking-tight leading-snug">
-            Your patients' data<br />stays private. Always.
-          </h2>
-          <p class="mt-5 text-white/75 text-lg leading-relaxed">
-            Note Reviewer is HIPAA compliant and built with privacy-first architecture. We process your
-            notes securely and never store, log, or transmit any Protected Health Information (PHI).
-          </p>
-
-          <div class="mt-8 flex items-center gap-5 justify-center md:justify-start">
-            <HipaaBadge variant="seal" theme="light" note="BAA available on request" />
-            <a
-              href="/privacy"
-              class="text-sm font-semibold text-sky-300 hover:text-white underline underline-offset-4 transition-colors"
-            >
-              Read our privacy policy
-            </a>
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 gap-4">
-          {trustItems.map(({ icon, text }) => (
-            <div class="flex items-start gap-3 bg-white/10 rounded-xl px-5 py-4">
-              <svg class="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d={icon} />
-              </svg>
-              <span class="text-sm text-white/90 font-medium">{text}</span>
-            </div>
-          ))}
-        </div>
-
+  <div class="flex flex-col gap-2.5">
+    {trust.map((text) => (
+      <div class="flex gap-2.5 items-start p-3.5 border border-line rounded-[10px] bg-white">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#147a5c" stroke-width="2.4" stroke-linecap="round" class="shrink-0 mt-0.5"><path d="M20 6 9 17l-5-5"></path></svg>
+        <div class="text-[13.5px] text-ink leading-relaxed">{text}</div>
       </div>
-    </div>
+    ))}
   </div>
 </section>
